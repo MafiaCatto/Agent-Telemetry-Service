@@ -1,4 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../lib/api";
+
 export function SettingsView() {
+  const { data } = useQuery({
+    queryKey: ["meta"],
+    queryFn: api.getMeta
+  });
+
   return (
     <section className="stack">
       <header className="page-header">
@@ -15,6 +23,18 @@ export function SettingsView() {
           </div>
         </div>
         <p>Configure API credentials, default time windows, retention expectations, and deep-link targets here next.</p>
+        {data ? (
+          <div className="details-grid">
+            <div className="detail-item">
+              <span className="detail-label">Data source</span>
+              <strong>{data.dataSource}</strong>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Default lookback</span>
+              <strong>{data.defaultLookbackHours} hours</strong>
+            </div>
+          </div>
+        ) : null}
       </article>
       <article className="panel">
         <div className="panel-header">

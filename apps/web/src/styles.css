@@ -163,6 +163,27 @@ table {
   height: 20rem;
 }
 
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.detail-item {
+  border: 1px solid rgba(154, 176, 199, 0.12);
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  background: rgba(9, 20, 34, 0.55);
+}
+
+.detail-label {
+  display: block;
+  color: #9ab0c7;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
 .table-panel {
   overflow-x: auto;
 }
