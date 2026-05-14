@@ -22,7 +22,7 @@ export async function buildApp() {
   const repository = config.DATA_SOURCE === "signoz"
     ? new SigNozObservabilityRepository(config)
     : new MockObservabilityRepository();
-  await registerRoutes(app, repository);
+  await registerRoutes(app, repository, config);
 
   return { app, config };
 }

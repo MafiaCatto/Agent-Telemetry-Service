@@ -1,7 +1,12 @@
 import type { FastifyInstance } from "fastify";
+import type { AppConfig } from "./config.js";
 import type { ObservabilityRepository } from "./repository.js";
 
-export async function registerRoutes(app: FastifyInstance, repository: ObservabilityRepository) {
+export async function registerRoutes(
+  app: FastifyInstance,
+  repository: ObservabilityRepository,
+  config: AppConfig
+) {
   app.get("/", async () => ({
     service: "agent-observability-api",
     status: "ok"
@@ -15,6 +20,11 @@ export async function registerRoutes(app: FastifyInstance, repository: Observabi
       api: "up",
       signoz: "pending"
     }
+  }));
+
+  app.get("/api/meta", async () => ({
+    dataSource: config.DATA_SOURCE,
+    defaultLookbackHours: config.DEFAULT_LOOKBACK_HOURS
   }));
 
   app.get("/api/overview", async () => repository.getOverview());
