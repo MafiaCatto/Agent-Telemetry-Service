@@ -17,6 +17,13 @@ A production-oriented starter for a vendor-neutral observability platform for AI
 
 This starter intentionally treats SigNoz as the engineering source of truth and keeps the management schema optional. The current API serves mocked management projections behind stable contracts so we can iterate on frontend and backend behavior before wiring real SigNoz queries.
 
+## Architecture Snapshot
+
+- OpenTelemetry Collector acts as the vendor-neutral ingest point
+- SigNoz remains the engineering-facing backend for traces and raw telemetry
+- The API shapes management-facing data contracts for the frontend
+- The React app focuses on KPIs, workflow status, and alert visibility rather than replacing trace exploration
+
 ## Getting Started
 
 1. Copy `infra/.env.example` to `.env` and adjust values.
