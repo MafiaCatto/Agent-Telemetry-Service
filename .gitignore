@@ -2,7 +2,9 @@ node_modules/
 dist/
 coverage/
 .vite/
+.logs/
 .env
 .env.local
 .DS_Store
 *.log
+*.tsbuildinfo
