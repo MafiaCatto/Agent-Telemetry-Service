@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../../lib/api";
+import { formatCurrencyUsd, formatTimestamp } from "../../lib/format";
 
 export function WorkflowsView() {
   const { data, isLoading, error } = useQuery({
@@ -43,10 +44,10 @@ export function WorkflowsView() {
                 <td>{run.workflowName}</td>
                 <td><span className={`pill ${run.status}`}>{run.status}</span></td>
                 <td><span className="pill">{run.environment}</span></td>
-                <td>{new Date(run.startedAt).toLocaleString()}</td>
+                <td>{formatTimestamp(run.startedAt)}</td>
                 <td>{run.durationMs} ms</td>
                 <td>{run.totalTokens.toLocaleString()}</td>
-                <td>${run.estimatedCostUsd.toFixed(3)}</td>
+                <td>{formatCurrencyUsd(run.estimatedCostUsd)}</td>
                 <td><code>{run.traceId}</code></td>
               </tr>
             ))}

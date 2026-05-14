@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../../lib/api";
+import { formatTimestamp } from "../../lib/format";
 
 export function AlertsView() {
   const { data, isLoading, error } = useQuery({
@@ -35,7 +36,7 @@ export function AlertsView() {
             </div>
             <p>{alert.active ? "Active" : "Paused"}</p>
             <p>Channels: {alert.notifyChannels.join(", ")}</p>
-            <p>Last triggered: {alert.lastTriggeredAt ? new Date(alert.lastTriggeredAt).toLocaleString() : "Never"}</p>
+            <p>Last triggered: {formatTimestamp(alert.lastTriggeredAt)}</p>
           </article>
         ))}
       </div>
