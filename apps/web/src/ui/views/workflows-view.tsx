@@ -29,6 +29,7 @@ export function WorkflowsView() {
             <tr>
               <th>Name</th>
               <th>Status</th>
+              <th>Env</th>
               <th>Started</th>
               <th>Duration</th>
               <th>Tokens</th>
@@ -41,6 +42,7 @@ export function WorkflowsView() {
               <tr key={run.id}>
                 <td>{run.workflowName}</td>
                 <td><span className={`pill ${run.status}`}>{run.status}</span></td>
+                <td><span className="pill">{run.environment}</span></td>
                 <td>{new Date(run.startedAt).toLocaleString()}</td>
                 <td>{run.durationMs} ms</td>
                 <td>{run.totalTokens.toLocaleString()}</td>
