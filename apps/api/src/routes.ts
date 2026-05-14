@@ -2,6 +2,11 @@ import type { FastifyInstance } from "fastify";
 import type { ObservabilityRepository } from "./repository.js";
 
 export async function registerRoutes(app: FastifyInstance, repository: ObservabilityRepository) {
+  app.get("/", async () => ({
+    service: "agent-observability-api",
+    status: "ok"
+  }));
+
   app.get("/health/live", async () => ({ status: "ok" }));
 
   app.get("/health/ready", async () => ({
