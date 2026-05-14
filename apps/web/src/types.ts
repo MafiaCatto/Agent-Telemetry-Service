@@ -52,3 +52,8 @@ export interface AlertRule {
   notifyChannels: string[];
   lastTriggeredAt: string | null;
 }
+
+export interface RuntimeMeta {
+  dataSource: "mock" | "signoz";
+  defaultLookbackHours: number;
+}
