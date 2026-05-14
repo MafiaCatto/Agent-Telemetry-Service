@@ -31,6 +31,13 @@ This starter intentionally treats SigNoz as the engineering source of truth and 
 3. Start the API with `npm run dev --workspace @agent-observability/api`.
 4. Start the frontend with `npm run dev --workspace @agent-observability/web`.
 
+## Useful Commands
+
+- `npm run typecheck --workspace @agent-observability/api`
+- `npm run typecheck --workspace @agent-observability/web`
+- `npm run build --workspace @agent-observability/api`
+- `npm run build --workspace @agent-observability/web`
+
 ## Initial API Surface
 
 - `GET /health/live`
