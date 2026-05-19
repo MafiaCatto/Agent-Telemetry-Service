@@ -15,6 +15,13 @@
 4. Add CI checks for typecheck, lint, and build.
 5. Introduce a transform service only if management reporting requires durable rollups outside SigNoz.
 
+## Near-Term Backlog
+
+- Add trace deep links from workflow rows into SigNoz
+- Add simple empty and error states for each management view
+- Replace mock overview metrics with a first live SigNoz query
+- Add a lightweight smoke test for API health routes
+
 ## Integration Notes
 
 - The API intentionally exposes management-shaped DTOs so the frontend is decoupled from SigNoz response formats.
