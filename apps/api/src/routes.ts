@@ -17,6 +17,7 @@ export async function registerRoutes(
 
   app.get("/health/ready", async () => ({
     status: "ready",
+    checkedAt: new Date().toISOString(),
     dependencies: {
       api: "up",
       signoz: "pending"
