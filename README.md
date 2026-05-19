@@ -30,6 +30,7 @@ This starter intentionally treats SigNoz as the engineering source of truth and 
 2. Install dependencies with `npm install`.
 3. Start the API with `npm run dev --workspace @agent-observability/api`.
 4. Start the frontend with `npm run dev --workspace @agent-observability/web`.
+5. Point the web app at the API with `VITE_API_BASE_URL=http://localhost:4000` if you are not using the default.
 
 ## Useful Commands
 
