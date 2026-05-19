@@ -9,7 +9,8 @@ export async function registerRoutes(
 ) {
   app.get("/", async () => ({
     service: "agent-observability-api",
-    status: "ok"
+    status: "ok",
+    timestamp: new Date().toISOString()
   }));
 
   app.get("/health/live", async () => ({ status: "ok" }));
@@ -24,7 +25,8 @@ export async function registerRoutes(
 
   app.get("/api/meta", async () => ({
     dataSource: config.DATA_SOURCE,
-    defaultLookbackHours: config.DEFAULT_LOOKBACK_HOURS
+    defaultLookbackHours: config.DEFAULT_LOOKBACK_HOURS,
+    signozBaseUrl: config.SIGNOZ_BASE_URL
   }));
 
   app.get("/api/overview", async () => repository.getOverview());

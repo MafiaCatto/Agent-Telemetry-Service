@@ -33,6 +33,10 @@ export function SettingsView() {
               <span className="detail-label">Default lookback</span>
               <strong>{data.defaultLookbackHours} hours</strong>
             </div>
+            <div className="detail-item">
+              <span className="detail-label">SigNoz base URL</span>
+              <strong>{data.signozBaseUrl}</strong>
+            </div>
           </div>
         ) : null}
       </article>

@@ -10,5 +10,6 @@ export const api = {
     getOverview: () => request("/api/overview"),
     getWorkflows: () => request("/api/workflows"),
     getAgents: () => request("/api/agents"),
-    getAlerts: () => request("/api/alerts")
+    getAlerts: () => request("/api/alerts"),
+    getMeta: () => request("/api/meta")
 };

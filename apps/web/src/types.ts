@@ -56,4 +56,5 @@ export interface AlertRule {
 export interface RuntimeMeta {
   dataSource: "mock" | "signoz";
   defaultLookbackHours: number;
+  signozBaseUrl: string;
 }

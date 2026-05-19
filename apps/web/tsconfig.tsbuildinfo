@@ -1,1 +1,1 @@
-{"root":["./src/main.tsx","./src/types.ts","./src/lib/api.ts","./src/ui/app-shell.tsx","./src/ui/views/agents-view.tsx","./src/ui/views/alerts-view.tsx","./src/ui/views/dashboard-view.tsx","./src/ui/views/settings-view.tsx","./src/ui/views/workflows-view.tsx"],"version":"5.9.3"}
+{"root":["./src/main.tsx","./src/types.ts","./src/lib/api.ts","./src/lib/format.ts","./src/ui/app-shell.tsx","./src/ui/views/agents-view.tsx","./src/ui/views/alerts-view.tsx","./src/ui/views/dashboard-view.tsx","./src/ui/views/settings-view.tsx","./src/ui/views/workflows-view.tsx"],"version":"5.9.3"}
