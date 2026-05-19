@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { api } from "../../lib/api";
+import { formatCurrencyUsd } from "../../lib/format";
 
 export function DashboardView() {
   const { data, isLoading, error } = useQuery({
@@ -22,6 +23,8 @@ export function DashboardView() {
     { label: "Budget used", value: `${data.metrics.budgetUsedPct}%` },
     { label: "Avg latency", value: `${data.metrics.avgLatencyMs} ms` }
   ];
+
+  const latestTrend = data.trend[data.trend.length - 1];
 
   return (
     <section className="stack">
@@ -50,6 +53,13 @@ export function DashboardView() {
           </div>
           <p>{data.metrics.recentAlerts} recent alerts</p>
         </div>
+        {latestTrend ? (
+          <div className="trend-summary">
+            <span>Latest interval: {latestTrend.runs} runs</span>
+            <span>{latestTrend.failures} failures</span>
+            <span>{formatCurrencyUsd(latestTrend.costUsd)} spend</span>
+          </div>
+        ) : null}
         <div className="chart-shell">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data.trend}>
