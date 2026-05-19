@@ -38,6 +38,12 @@ This starter intentionally treats SigNoz as the engineering source of truth and 
 - `npm run build --workspace @agent-observability/api`
 - `npm run build --workspace @agent-observability/web`
 
+## Current Status
+
+- Management UI routes are live for dashboard, workflows, agents, alerts, and settings
+- API endpoints currently serve stable mock data contracts plus runtime metadata
+- CI validates typecheck and build for both apps on every push
+
 ## Initial API Surface
 
 - `GET /health/live`
