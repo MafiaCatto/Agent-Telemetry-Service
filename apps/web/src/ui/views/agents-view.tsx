@@ -15,6 +15,9 @@ export function AgentsView() {
     return <section className="panel"><p>Agent stats unavailable.</p></section>;
   }
 
+  const totalCalls = data.reduce((sum, agent) => sum + agent.toolCallsTotal, 0);
+  const totalFailures = data.reduce((sum, agent) => sum + agent.toolCallsFailed, 0);
+
   return (
     <section className="stack">
       <header className="page-header">
@@ -23,6 +26,16 @@ export function AgentsView() {
           <h2>Reliability by agent</h2>
         </div>
       </header>
+      <article className="panel">
+        <div className="panel-header">
+          <h3>Fleet summary</h3>
+        </div>
+        <div className="trend-summary">
+          <span>{data.length} active agents</span>
+          <span>{totalCalls.toLocaleString()} total tool calls</span>
+          <span>{totalFailures.toLocaleString()} failed tool calls</span>
+        </div>
+      </article>
       <div className="metric-grid">
         {data.map((agent) => (
           <article key={agent.id} className="metric-card">
